@@ -24,7 +24,9 @@ import com.thoughtworks.go.plugin.api.response.GoPluginApiResponse;
 
 import java.util.*;
 
+import static cd.go.contrib.elasticagents.docker.DockerPlugin.LOG;
 import static cd.go.contrib.elasticagents.docker.executors.GetProfileMetadataExecutor.FIELDS;
+
 
 public class ProfileValidateRequestExecutor implements RequestExecutor {
     private final ProfileValidateRequest request;
@@ -37,7 +39,7 @@ public class ProfileValidateRequestExecutor implements RequestExecutor {
     @Override
     public GoPluginApiResponse execute() throws Exception {
         ArrayList<Map<String, String>> result = new ArrayList<>();
-
+        LOG.debug("Execute profile validate request");
         List<String> knownFields = new ArrayList<>();
 
         for (Metadata field : FIELDS) {

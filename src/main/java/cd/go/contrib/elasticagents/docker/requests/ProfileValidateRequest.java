@@ -22,6 +22,8 @@ import com.google.gson.Gson;
 
 import java.util.Map;
 
+import static cd.go.contrib.elasticagents.docker.DockerPlugin.LOG;
+
 public class ProfileValidateRequest {
 
     private static final Gson GSON = new Gson();
@@ -37,6 +39,7 @@ public class ProfileValidateRequest {
     }
 
     public static ProfileValidateRequest fromJSON(String json) {
+        LOG.debug("ProfileValidateRequest" + json);
         return new ProfileValidateRequest(GSON.fromJson(json, Map.class));
     }
 
